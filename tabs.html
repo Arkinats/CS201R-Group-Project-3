@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="js/angular.js"></script>  <!-- https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js -->
+    <script src="js/mhsApp.js"></script>
+    <script src="js/inoutCtrl.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body ng-app="mhsApp" ng-controller="inoutCtrl">
+    <mhsheader></mhsheader>
+    <mhstopbar></mhstopbar>
+    <div id="body-container">
+        <div id="body-center">
+            <div id="list-container">
+                <div id="list-header">
+                    Sort by Name, Position, Status
+                </div>
+                <div class="list-item" ng-repeat="x in data" >
+                    <div class="list-left">
+                        <div class="list-check">
+                            <input type="checkbox" /> <img src="{{x.avatar}}" status-class x="x" />
+                        </div>
+                    </div>
+                    <div class="list-right">
+                        <div class="list-person">
+                            <span class="alignleft"><strong>{{x.name}}</strong></span><span class="alignright">{{x.position}}</span><br />
+                                {{x.message}}
+                        </div>
+                        <div class="list-contact">
+                            <span class="alignleft">{{x.email}}</span><span class="alignright">{{x.telephone}}</span>
+                        </div>
+                    </div>
+                </div>
+                <form novalidate class="list-form">
+                    Name: <input type="text" ng-model="user.name" /><br />
+                    Position: <input type="text" ng-model="user.position" /><br />
+                    E-mail: <input type="email" ng-model="user.email" /><br />
+                    Telephone: <input type="text" ng-model="user.telephone" /><br />
+                    Avatar:
+                    <input type="button" ng-click="reset()" value="Reset" />
+                    <input type="submit" ng-click="newUser(user)" value="Save" />
+                </form>
+                <div>
+                    name: {{user.name}}
+                    position: {{user.position}}
+                </div>
+            </div>
+            <div >
+                {{x.name}}, {{x.email}}
+            </div>
+        </div>
+        
+
+    </div>
+    
+
+    <mhsfooter></mhsfooter>
+    
+</body>
+</html>
